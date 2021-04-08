@@ -1,43 +1,26 @@
 const { request } = require('../app')
+const Beer = require('../models/Beer')
 
 exports.home = function (req, res) {
     res.render('home-guest')
 }
 
-exports.anyBinch = function (req, res) {
-
-    var mysql = require('mysql')
-
-    var con = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "Password1234",
-        database: "maltilink"
-    });
-
-    getBeerInfos(con, req.params.code_bar_number)
-        .then(function (results) {
-            console.log(results[0])
-            res.render('binch-info-model', { infos: results[0] })
-        })
-        .catch(function (err) {
-            console.log("Promise rejection error: " + err);
-        })
+exports.anyBinch = async function (req, res, next) {
+    try {
+        let beerInfos = await Beer.findInfos(req.params.code_bar_number)
+        console.log("Bar code: ", beerInfos[0].BRAND)
+        req.binches = {
+            code: beerInfos[0].BAR_CODE_NUMBER,
+            brand: beerInfos[0].BRAND,
+            infos: beerInfos[0].DESCRIPTION
+        }
+        next()
+    } catch (error) {
+        console.log(error)
+    }
 }
 
-getBeerInfos = function (con, beerNumber) {
-    return new Promise(function (resolve, reject) {
-        con.query(
-            "SELECT * FROM bar_code_infos WHERE bar_code_number='" + beerNumber + "'",
-            function (err, rows) {
-                if (rows === undefined) {
-                    reject(new Error("Error rows is undefined"));
-                } else {
-                    resolve(rows);
-                }
-            }
-        )
-    }
-    )
+exports.display = function (req, res) {
+    res.render('binch-info-model', { data: req.binches })
 }
 
