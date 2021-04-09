@@ -13,14 +13,38 @@
     <!-- header ends here -->
 
     <div class="main-container">
-        <h1>Infos sur la Bière identifiée</h1>
-        <p>Code bar: <%= data.code %></p>
-        <h3>Entreprise: <%= data.brand %></h3>
-
-        <div class="description">
-            <h2>Liens entre la bière et l'agriculteur</h2>
-            <p><%= data.infos %></p>
+        <div class="identified-part">
+            <div class="identified-text">
+                <p>Bière identifiée!</p>
+            </div>
+            <div class="identified-image">
+                <img src="/images/beer_found.png" alt="A nice beer image">
+            </div>
         </div>
+
+        <div class="features">
+            <p class="brand">Vous buvez une bière de type: <span><%= data.brand %></span></p>
+            <p class="bar-code">Code: <%= data.code %></p>
+        </div>
+
+        <div class="info-beer">
+            <div class="beer-banner">
+                <img src="/images/beer_bubbles.png" alt="Some nice beer bubbles">
+                <div class="centered">Infos Bière</div>
+            </div>
+            <div class="beer-text"><%= data.infos %></div>
+        </div>
+
+        <div class="info-farmer">
+            <div class="field-banner">
+                <img src="/images/barley_field.jpg" alt="A wonderful barley field">
+                <div class="centered">Infos Agriculteur</div>
+            </div>
+            <div class="field-text">L'orge utilisé pour la fabrication de cette bière a été cultivé par l'agriculteur
+                William Farmer en Ajoie
+                (commune de Coeuve).</div>
+        </div>
+
     </div>
 
     <!-- footer begins -->

@@ -8,7 +8,7 @@ exports.home = function (req, res) {
 exports.anyBinch = async function (req, res, next) {
     try {
         let beerInfos = await Beer.findInfos(req.params.code_bar_number)
-        console.log("Bar code: ", beerInfos[0].BRAND)
+        //console.log("Bar code: ", beerInfos[0].BRAND)
         req.binches = {
             code: beerInfos[0].BAR_CODE_NUMBER,
             brand: beerInfos[0].BRAND,
