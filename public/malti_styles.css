@@ -68,6 +68,8 @@ span {
     width: 100%;
     height: 80px; 
     border-radius: 10px;
+    margin: 0 10px;
+    opacity: 0.8;
 }
 
 .beer-banner {
@@ -104,6 +106,8 @@ span {
     width: 100%;
     height: 80px; 
     border-radius: 10px;
+    margin: 0 10px;
+    opacity: 0.8;
 }
 
 .field-banner {
