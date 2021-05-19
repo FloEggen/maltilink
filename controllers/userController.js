@@ -10,9 +10,13 @@ exports.anyBinch = async function (req, res, next) {
         let beerInfos = await Beer.findInfos(req.params.code_bar_number)
         //console.log("Bar code: ", beerInfos[0].BRAND)
         req.binches = {
-            code: beerInfos[0].BAR_CODE_NUMBER,
-            brand: beerInfos[0].BRAND,
-            infos: beerInfos[0].DESCRIPTION
+            beer_name: beerInfos[0].BEER_NAME,
+            brewery_name: beerInfos[0].BREWERY_NAME,
+            production_location: beerInfos[0].PRODUCTION_LOCATION,
+            beer_description: beerInfos[0].BEER_DESCRIPTION,
+            brewery_description: beerInfos[0].BREWERY_DESCRIPTION,
+            brewery_website: beerInfos[0].BREWERY_WEBSITE,
+            farmer_description: beerInfos[0].FARMER_DESCRIPTION,
         }
         next()
     } catch (error) {
@@ -21,6 +25,6 @@ exports.anyBinch = async function (req, res, next) {
 }
 
 exports.display = function (req, res) {
-    res.render('binch-info-model', { data: req.binches })
+    res.render('binch-info-model-new', { data: req.binches })
 }
 

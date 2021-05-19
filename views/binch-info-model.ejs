@@ -23,8 +23,8 @@
         </div>
 
         <div class="features">
-            <p class="brand">Vous buvez une bière de type: <span><%= data.brand %></span></p>
-            <p class="bar-code">Code: <%= data.code %></p>
+            <p class="brand">Vous buvez une: <span><%= data.beer_name %></span> de la brasserie
+                <span><%= data.brewery_name %></span>, à <span><%= data.production_location %></span></p>
         </div>
 
         <div class="info-beer">
@@ -32,7 +32,12 @@
                 <img src="/images/beer_bubbles.png" alt="Some nice beer bubbles">
                 <div class="centered">Infos Bière</div>
             </div>
-            <p class="beer-text"><%= data.infos %></p>
+            <p class="beer-text"><%= data.beer_description %></p>
+        </div>
+
+        <div class="info-brewery">
+            <p class="brewery-text"><%= data.brewery_description %></p>
+            <p class="brewery-website"><%= data.brewery_website %></p>
         </div>
 
         <div class="info-farmer">
@@ -40,10 +45,7 @@
                 <img src="/images/barley_field.jpg" alt="A wonderful barley field">
                 <div class="centered">Infos Agriculteur</div>
             </div>
-            <div class="field-text">L'orge utilisée pour la fabrication de cette bière a été cultivé par l'agriculteur
-                William Farmer en Ajoie
-                (commune de Coeuve).
-            </div>
+            <p class="field-text"><%= data.farmer_description %></p>
         </div>
 
     </div>

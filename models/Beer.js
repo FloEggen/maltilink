@@ -17,7 +17,7 @@ Beer.findInfos = function (beerNumber) {
         });
 
         con.query(
-            "SELECT * FROM Origins WHERE BAR_CODE_NUMBER='" + beerNumber + "'",
+            "SELECT * FROM Origins WHERE BARCODE_NUMBER='" + beerNumber + "'",
             (err, rows) => {
                 if (rows === undefined) {
                     reject(new Error("Error rows is undefined" + err));

@@ -13,14 +13,12 @@ body {
     margin: 0;
 }
 
-
 .identified-part {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
-
 
 .identified-text {
     font-size: 60px;
@@ -135,4 +133,3 @@ footer {
     text-align: center;
     font-size: 1.5rem;
 }
-
