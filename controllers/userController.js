@@ -1,5 +1,6 @@
 const { request } = require('../app')
 const Beer = require('../models/Beer')
+const Farmer = require('../models/Farmer')
 
 exports.home = function (req, res) {
     res.render('home-guest')
@@ -16,7 +17,21 @@ exports.anyBinch = async function (req, res, next) {
             beer_description: beerInfos[0].BEER_DESCRIPTION,
             brewery_description: beerInfos[0].BREWERY_DESCRIPTION,
             brewery_website: beerInfos[0].BREWERY_WEBSITE,
-            farmer_description: beerInfos[0].FARMER_DESCRIPTION,
+            beer_batch: beerInfos[0].BARLEY_BATCH
+        }
+        next()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+exports.anyFarmer = async function (req, res, next) {
+    try {
+        console.log("Hello BATCH: ", req.binches.beer_batch)
+        let farmerInfos = await Farmer.findInfos(req.binches.beer_batch)
+        console.log("DESCRIPTION FARMER: ", farmerInfos[0].DESCRIPTION)
+        req.farmer = {
+            farmer_description: farmerInfos[0].DESCRIPTION
         }
         next()
     } catch (error) {
@@ -25,6 +40,13 @@ exports.anyBinch = async function (req, res, next) {
 }
 
 exports.display = function (req, res) {
-    res.render('binch-info-model-new', { data: req.binches })
+    console.log(req.binches)
+    console.log(req.farmer)
+    var beer = req.binches
+    var farmer = req.farmer
+    beer.farmer_description = farmer.farmer_description
+    //var temp = beer.push(farmer.farmer_description)
+    console.log(beer)
+    res.render('binch-info-model-new', { data: beer })
 }
 

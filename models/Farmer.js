@@ -2,10 +2,10 @@
 var mysql = require('mysql')
 
 // Constructor of the User object
-let Beer = function () {
+let Farmer = function () {
 }
 
-Beer.findInfos = function (beerNumber) {
+Farmer.findInfos = function (batchNumber) {
     return new Promise(async (resolve, reject) => {
 
         var con = mysql.createConnection({
@@ -17,7 +17,7 @@ Beer.findInfos = function (beerNumber) {
         });
 
         con.query(
-            "SELECT * FROM Bieres WHERE BARCODE_NUMBER='" + beerNumber + "'",
+            "SELECT agri.DESCRIPTION FROM `Agriculteurs` agri JOIN Batch_Infos batch WHERE batch.BARLEY_BATCH = '" + batchNumber + "' AND batch.FARMER_ID = agri.ID",
             (err, rows) => {
                 if (rows === undefined) {
                     reject(new Error("Error rows is undefined" + err));
@@ -30,4 +30,4 @@ Beer.findInfos = function (beerNumber) {
     })
 }
 
-module.exports = Beer
+module.exports = Farmer

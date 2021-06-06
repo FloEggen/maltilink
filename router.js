@@ -3,6 +3,6 @@ const router = express.Router()
 const userController = require('./controllers/userController.js')
 router.get('/', userController.home)
 
-router.get('/:code_bar_number', userController.anyBinch, userController.display)
+router.get('/:code_bar_number', userController.anyBinch, userController.anyFarmer, userController.display)
 
 module.exports = router

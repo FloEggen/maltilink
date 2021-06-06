@@ -9,6 +9,7 @@
 
 <body>
     <header class="header-bar">
+        <img class="picto-banner" src="/images/banner_malti_only_picto.png" alt="A nice malticulture banner">
     </header>
     <!-- header ends here -->
 
@@ -28,7 +29,7 @@
         <div class="brewery-description">
             <div class="banner">Description de la brasserie</div>
             <p class="brewery-text"><%= data.brewery_description %></p>
-            <div class="brewery-website"><%= data.brewery_website %></div>
+            <div class="brewery-website">- <a href="<%= data.brewery_website %>"><%= data.brewery_website %></a> -</div>
         </div>
 
         <div class="farmer-description">
@@ -40,9 +41,11 @@
 
     <!-- footer begins -->
     <footer>
-        <p class="footer-p">Copyright &copy; 2021 <a href="https://www.malticulture.ch"
-                class="text-muted">Malticulture</a>. All
-            rights reserved.</p>
+        <img class="picto-banner" src="/images/banner_malti_only_picto.png" alt="A nice malticulture banner">
+        <div class="copyright">
+            <p class="footer-p">Copyright &copy; 2021 <a href="https://www.malticulture.ch"
+                    class="text-muted">Malticulture</a>. All rights reserved.</p>
+        </div>
     </footer>
 
 </body>
