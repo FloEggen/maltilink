@@ -10,5 +10,5 @@ const router = require('./router.js')
 app.use('/', router)
 
 let port = process.env.PORT
-if (port == null || port == "") { port = 3000 }
+if (port == null || port == "") { port = 4002 }
 app.listen(port)

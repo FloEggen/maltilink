@@ -7,13 +7,12 @@ let Beer = function () {
 
 Beer.findInfos = function (beerNumber) {
     return new Promise(async (resolve, reject) => {
-
         var con = mysql.createConnection({
-            host: "sql4.freemysqlhosting.net",
+            host: "i644z.myd.infomaniak.com",
             port: "3306",
-            user: "sql4402888",
-            password: "zgMDF8as5F",
-            database: "sql4402888"
+            user: "i644z_malti_user",
+            password: "Exxon1986!",
+            database: "i644z_malti_db"
         });
 
         con.query(
