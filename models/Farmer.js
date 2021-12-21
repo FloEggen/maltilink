@@ -17,7 +17,7 @@ Farmer.findInfos = function (batchNumber) {
         });
 
         con.query(
-            "SELECT agri.AGRI_DESC FROM `Agriculteurs` agri JOIN Batch_Infos batch WHERE batch.BARLEY_BATCH = '" + batchNumber + "' AND batch.FARMER_ID = agri.ID",
+            "SELECT agri.AGRI_DESC, agri.AGRI_WEBSITE FROM `Agriculteurs` agri JOIN Batch_Infos batch WHERE batch.BARLEY_BATCH = '" + batchNumber + "' AND batch.FARMER_ID = agri.ID",
             (err, rows) => {
                 if (rows === undefined) {
                     reject(new Error("Error rows is undefined" + err));

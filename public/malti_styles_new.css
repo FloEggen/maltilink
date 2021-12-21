@@ -40,14 +40,46 @@ body {
     width: 95%;
 }
 
-.brewery-website {
+.website {
     padding-left: 20px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
+.website a {
+    text-decoration: none;
+    color: black;
+}
+
 span {
     font-weight: bold;
+}
+
+.beer-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.beer-table {
+    text-align: left;
+    border: 1px solid black
+}
+
+.beer-table a {
+    text-decoration: none;
+    color: black;
+}
+
+.beer-table a:hover {
+    color: grey;
+}
+
+.beer-table th, td {
+    padding: 5px;
+}
+
+.beer-table tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
 .copyright {

@@ -30,9 +30,20 @@ exports.anyFarmer = async function (req, res, next) {
         let farmerInfos = await Farmer.findInfos(req.binches.beer_batch)
         console.log("DESCRIPTION FARMER: ", farmerInfos[0].AGRI_DESC)
         req.farmer = {
-            farmer_description: farmerInfos[0].AGRI_DESC
+            farmer_description: farmerInfos[0].AGRI_DESC,
+            farmer_website: farmerInfos[0].AGRI_WEBSITE
         }
         next()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+exports.allBinches = async function (req, res) {
+    try {
+        let beerInfos = await Beer.findAllBeers()
+        console.log(beerInfos[0].BEER_NAME)
+        res.render('home-guest', { data: beerInfos })
     } catch (error) {
         console.log(error)
     }
@@ -44,7 +55,7 @@ exports.display = function (req, res) {
     var beer = req.binches
     var farmer = req.farmer
     beer.farmer_description = farmer.farmer_description
-    //var temp = beer.push(farmer.farmer_description)
+    beer.farmer_website = farmer.farmer_website
     console.log(beer)
     res.render('binch-info-model-new', { data: beer })
 }

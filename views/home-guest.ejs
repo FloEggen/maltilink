@@ -4,26 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Malticulture Links</title>
-    <link rel="stylesheet" href="malti_styles.css">
+    <link rel="stylesheet" href="/malti_styles_new.css">
 </head>
 
 <body>
     <header class="header-bar">
+        <img class="picto-banner" src="/images/banner_malti_only_picto.png" alt="A nice malticulture banner">
     </header>
     <!-- header ends here -->
 
     <div class="main-container">
-        <h3>Un site web avec de bonnes binches?</h3>
-        <p><a href="/7640103300787">Binch #1</a></p>
-        <p><a href="/7640180521044">Binch #2</a></p>
-        <p><a href="/7640184520050">Binch #3</a></p>
-        <p><a href="/7640399290080">Binch #4</a></p>
-
+        <div class="beer-container">
+            <h3>Bières recensées</h3>
+            <table class="beer-table">
+                <tr>
+                    <th>Nom de la bière</th>
+                    <th>Code-barres</th>
+                </tr>
+                <% data.forEach(function(beer) { %>
+                <tr>
+                    <td><%= beer.BEER_NAME %></td>
+                    <td><a href="/<%= beer.BARCODE_NUMBER %>"><%= beer.BARCODE_NUMBER %></a></td>
+                </tr>
+                <% }) %>
+            </table>
+        </div>
     </div>
 
     <!-- footer begins -->
     <footer>
-        <p class="m-0">Copyright &copy; 2020 <a href="/" class="text-muted">Malticulture</a>. All rights reserved.</p>
+        <img class="picto-banner" src="/images/banner_malti_only_picto.png" alt="A nice malticulture banner">
+        <div class="copyright">
+            <p class="footer-p">Copyright &copy; 2021 <a href="https://www.malticulture.ch"
+                    class="text-muted">Malticulture</a>. All rights reserved.</p>
+        </div>
     </footer>
 
 </body>
