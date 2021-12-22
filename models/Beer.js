@@ -20,6 +20,8 @@ Beer.findInfos = function (beerNumber) {
             (err, rows) => {
                 if (rows === undefined) {
                     reject(new Error("Error rows is undefined" + err));
+                } else if (rows.length === 0) {
+                    reject("No data found in the database.")
                 } else {
                     resolve(rows);
                 }

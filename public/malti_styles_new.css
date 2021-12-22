@@ -82,6 +82,21 @@ span {
     background-color: #f2f2f2;
 }
 
+.not-found-container {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.not-found-message {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.not-found-message span {
+    font-weight: bold;
+}
+
 .copyright {
     width: 80%;
     text-align: center;

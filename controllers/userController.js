@@ -6,6 +6,18 @@ exports.home = function (req, res) {
     res.render('home-guest')
 }
 
+exports.doesBeerExist = function (req, res, next) {
+
+    Beer.findInfos(req.params.code_bar_number).then(() => {
+        console.log("BEER WITH NUMBER " + req.params.code_bar_number + " FOUUUUND")
+        next()
+    }).catch(() => {
+        var barcode = req.params.code_bar_number
+        console.log("BEER WITH NUMBER " + barcode + " NOT FOUUUUND")
+        res.render('binch-not-found', { barcode })
+    })
+}
+
 exports.anyBinch = async function (req, res, next) {
     try {
         let beerInfos = await Beer.findInfos(req.params.code_bar_number)
@@ -20,7 +32,7 @@ exports.anyBinch = async function (req, res, next) {
         }
         next()
     } catch (error) {
-        console.log(error)
+        console.log("SalUTUUUUUT: " + error)
     }
 }
 
